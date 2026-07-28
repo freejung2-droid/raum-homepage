@@ -176,7 +176,7 @@ section { padding: 116px 0; position: relative; }
 }
 .nav-cta:hover { transform: translateY(-2px); background: var(--leaf-deep); }
 .nav-burger { display: none; padding: 8px; color: var(--teal); }
-@media (max-width: 940px) { .nav-links, .nav-cta { display: none; } .nav-burger { display: flex; } }
+@media (max-width: 1180px) { .nav-links, .nav-cta { display: none; } .nav-burger { display: flex; } }
 
 .mobile-menu {
   position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 59;
@@ -210,20 +210,10 @@ section { padding: 116px 0; position: relative; }
 .btn-ghost:hover { border-color: var(--teal); color: var(--teal); background: #fff; }
 
 /* ============================ hero ============================ */
-.hero { padding: 0; position: relative; min-height: min(88vh, 780px); display: grid; }
-.hero-bg { position: absolute; inset: 0; overflow: hidden; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
-.hero-bg::after {
-  content: ""; position: absolute; inset: 0;
-  background:
-    linear-gradient(to bottom,
-      rgba(238,242,222,.62) 0%,
-      rgba(238,242,222,.28) 40%,
-      rgba(220,226,221,.14) 60%,
-      rgba(220,226,221,.55) 82%,
-      rgba(253,250,243,.92) 100%);
-}
-.hero-inner { position: relative; z-index: 2; align-self: center; width: 100%; padding: 80px 0 96px; text-align: center; }
+.hero { padding: 0; position: relative; }
+.hero-bg { width: 100%; overflow: hidden; line-height: 0; }
+.hero-bg img { width: 100%; height: auto; display: block; }
+.hero-inner { position: relative; width: 100%; padding: 56px 0 96px; text-align: center; }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 9px;
   font-size: 13.5px; font-weight: 700; color: var(--leaf-deep);
@@ -266,9 +256,7 @@ section { padding: 116px 0; position: relative; }
 }
 .hero-fact b { font-family: var(--font-round); font-weight: 400; color: var(--teal); font-size: 15px; }
 @media (max-width: 560px) {
-  .hero { min-height: 82vh; }
-  .hero-bg img { object-position: 50% 62%; }
-  .hero-inner { padding: 56px 0 72px; }
+  .hero-inner { padding: 40px 0 72px; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
 }
@@ -309,6 +297,12 @@ section { padding: 116px 0; position: relative; }
 .phil-card:nth-child(3) .phil-icon { background: rgba(124,179,66,.16); }
 .phil-card h3 { font-size: 21px; margin-bottom: 12px; }
 .phil-card p { color: var(--ink-soft); font-size: 15px; line-height: 1.85; }
+.phil-video { max-width: 380px; margin: 48px auto 0; text-align: center; }
+.phil-video video { width: 100%; display: block; aspect-ratio: 1080 / 1916; background: #000; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.phil-video-cap { margin-top: 14px; font-size: 14px; color: var(--ink-soft); }
+.info-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.info-list li { position: relative; padding-left: 16px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.7; }
+.info-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--leaf); }
 @media (max-width: 900px) { .phil-grid { grid-template-columns: 1fr; gap: 16px; } }
 
 /* ============================ programs ============================ */
@@ -439,16 +433,13 @@ section { padding: 116px 0; position: relative; }
 
 /* ============================ director ============================ */
 .director { background: linear-gradient(180deg, var(--cream-2) 0%, var(--sand) 100%); }
-.director-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
-.director-photo { position: relative; }
-.director-photo img {
+.director-grid, .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
+.director-photo, .about-photo { position: relative; }
+.director-photo img, .about-photo img {
   width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
   aspect-ratio: 5/4; object-fit: cover;
 }
-.director-photo::before {
-  content: ""; position: absolute; inset: 18px -18px -18px 18px; z-index: -1;
-  border: 2px dashed rgba(124,179,66,.45); border-radius: var(--radius-lg);
-}
+.about-photo img { aspect-ratio: 1427/1102; }
 .director-quote {
   font-family: var(--font-serif); font-weight: 700;
   font-size: clamp(20px, 2.3vw, 27px); line-height: 1.65; color: var(--teal-deep);
@@ -464,9 +455,13 @@ section { padding: 116px 0; position: relative; }
 .director-sign .nm { font-family: var(--font-round); font-size: 19px; color: var(--teal); }
 .director-sign .rl { font-size: 13.5px; color: var(--ink-mute); font-weight: 500; }
 @media (max-width: 900px) {
-  .director-grid { grid-template-columns: 1fr; gap: 40px; }
-  .director-photo::before { display: none; }
+  .director-grid, .about-grid { grid-template-columns: 1fr; gap: 40px; }
 }
+.about-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+.about-strip figure { margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+.about-strip img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.about-strip figcaption { padding: 10px 4px 0; font-size: 13px; color: var(--ink-soft); text-align: center; }
+@media (max-width: 700px) { .about-strip { grid-template-columns: 1fr; } }
 
 /* ============================ daily routine ============================ */
 .routine-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; }
@@ -558,6 +553,8 @@ section { padding: 116px 0; position: relative; }
 .info-row .val a { color: var(--ink); font-weight: 700; border-bottom: 1.5px solid var(--leaf-soft); }
 .loc-btns { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
 .loc-btns .btn { flex: 1; min-width: 150px; padding: 14px 20px; font-size: 14.5px; }
+.about-card { max-width: 640px; margin: 0 auto; }
+.about-card .info-rows { margin-top: 0; }
 .map-card {
   border-radius: var(--radius-lg); overflow: hidden; min-height: 440px; position: relative;
   border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--sand);
@@ -659,11 +656,14 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
     </a>
     <div class="nav-links">
       <a href="#about">소개</a>
-      <a href="#programs">프로그램</a>
-      <a href="#timecare">시간제보육</a>
       <a href="#director">원장 인사말</a>
+      <a href="#philosophy">운영철학</a>
+      <a href="#programs">프로그램</a>
       <a href="#routine">하루일과</a>
+      <a href="#care">안심보육</a>
+      <a href="#timecare">시간제보육</a>
       <a href="#gallery">갤러리</a>
+      <a href="#admission">입소안내</a>
       <a href="#location">오시는 길</a>
     </div>
     <a href="https://open.kakao.com/o/sfv9n8Eh" target="_blank" rel="noopener" class="nav-cta">입학 상담</a>
@@ -676,11 +676,14 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about">소개</a>
-  <a href="#programs">프로그램</a>
-  <a href="#timecare">시간제보육</a>
   <a href="#director">원장 인사말</a>
+  <a href="#philosophy">운영철학</a>
+  <a href="#programs">프로그램</a>
   <a href="#routine">하루일과</a>
+  <a href="#care">안심보육</a>
+  <a href="#timecare">시간제보육</a>
   <a href="#gallery">갤러리</a>
+  <a href="#admission">입소안내</a>
   <a href="#location">오시는 길</a>
   <a href="https://open.kakao.com/o/sfv9n8Eh" target="_blank" rel="noopener">카카오톡 입학 상담</a>
 </div>
@@ -691,7 +694,7 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
 <!-- ======================= HERO ======================= -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="images/web/hero.jpg" alt="라움어린이집 일러스트 - 숲과 언덕 사이의 작은 집" fetchpriority="high">
+    <img src="images/web/hero.png" alt="라움어린이집 일러스트 - 숲과 언덕 사이의 작은 집" fetchpriority="high">
   </div>
   <div class="hero-inner">
     <div class="container">
@@ -707,7 +710,7 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
           카카오톡으로 상담하기
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="#about" class="btn btn-ghost">라움의 생각 보기</a>
+        <a href="#philosophy" class="btn btn-ghost">라움의 생각 보기</a>
       </div>
       <div class="hero-facts reveal d3">
         <a href="#timecare" class="hero-fact"><b>시간제보육</b> 지정기관</a>
@@ -719,11 +722,88 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
   </div>
 </section>
 
-<!-- ======================= PHILOSOPHY ======================= -->
-<section class="philosophy" id="about">
+<!-- ======================= ABOUT (소개) ======================= -->
+<section id="about">
   <div class="container">
     <div class="sec-head reveal">
-      <span class="sec-label">OUR PHILOSOPHY</span>
+      <span class="sec-label">소개</span>
+      <h2>부산 해운대 반여동,<br>라움어린이집을 소개합니다</h2>
+      <p>빠른 배움보다 단단한 마음을 먼저 생각하는, 만 0~2세 영아전문 어린이집입니다.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="images/web/playroom.jpg" alt="라움어린이집 유희실 놀이 공간" loading="lazy" decoding="async">
+      </div>
+      <div class="loc-card about-card reveal d1">
+        <div class="info-rows">
+          <div class="info-row"><strong>대상연령</strong><span class="val">만 0세 · 만 1세 · 만 2세 (영아전문)</span></div>
+          <div class="info-row"><strong>운영시간</strong><span class="val">평일 07:30 – 19:30<br>토 · 일 · 공휴일 휴원</span></div>
+          <div class="info-row"><strong>위치</strong><span class="val">부산광역시 해운대구 삼어로 55<br>센텀SK뷰아파트 관리동</span></div>
+          <div class="info-row"><strong>전화</strong><span class="val"><a href="tel:051-526-2120">051-526-2120</a></span></div>
+          <div class="info-row"><strong>시간제보육</strong><span class="val">부산광역시 지정기관 · 예약제 운영 · 열린어린이집 지정</span></div>
+          <div class="info-row"><strong>수상이력</strong><span class="val">2023년 탄소중립 부산어린이집연합회 최우수상 · 2024년 탄소중립 부산시장상 대상</span></div>
+        </div>
+        <div class="loc-btns">
+          <a href="https://open.kakao.com/o/sfv9n8Eh" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.73 1.75 5.13 4.39 6.55-.17.62-.63 2.31-.72 2.67 0 0-.01.05.02.08s.08.01.08.01c.28-.04 3.22-2.1 3.74-2.47.81.12 1.65.18 2.49.18 5.5 0 10-3.58 10-8s-4.5-8-10-8z"/></svg>
+            카카오톡으로 상담하기
+          </a>
+          <a href="#location" class="btn btn-ghost">오시는 길 보기</a>
+        </div>
+      </div>
+    </div>
+    <div class="about-strip reveal d2">
+      <figure>
+        <img src="images/web/gallery-classroom.jpg" alt="장난감과 그림책이 정돈된 교실 내부" loading="lazy" decoding="async">
+        <figcaption>아늑하게 꾸며진 교실</figcaption>
+      </figure>
+      <figure>
+        <img src="images/web/gallery-hallway.jpg" alt="라움어린이집 로고 벽화와 아이들 사진 게시판이 있는 복도" loading="lazy" decoding="async">
+        <figcaption>정성 가득한 포토 게시판</figcaption>
+      </figure>
+      <figure>
+        <img src="images/web/gallery-entrance.jpg" alt="신발장과 하트 스티커로 꾸며진 현관 출입구" loading="lazy" decoding="async">
+        <figcaption>따뜻하게 맞이하는 현관</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DIRECTOR ======================= -->
+<section class="director" id="director">
+  <div class="container director-grid">
+    <div class="director-photo reveal">
+      <img src="images/web/director.jpg" alt="아이와 함께 그림책을 읽는 선생님" loading="lazy" decoding="async">
+    </div>
+    <div class="director-text reveal d1">
+      <span class="sec-label">원장 인사말</span>
+      <p class="director-quote">
+        “아이 한 명 한 명의 눈빛을 마주하며,<br>
+        아이의 마음을 먼저 바라보는 것.<br>
+        그것이 라움이 가장 소중히 지키는 교육입니다.”
+      </p>
+      <div class="director-body">
+        <span>라움어린이집은 아이를 있는 그대로 바라보고, 저마다의 속도를 존중하는 곳입니다.</span>
+        <span>말이 빠른 아이도, 마음을 여는 데 시간이 필요한 아이도 모두 자신만의 방식으로 세상을 배워간다고 믿습니다.</span>
+        <span>매일 자연을 만나고, 마음껏 놀이하며, 사랑받는 기억을 차곡차곡 쌓아가는 것. 그 시간이 영아기의 가장 소중한 배움이라고 믿습니다.</span>
+        <span>아이도, 부모님도, 교사도 함께 웃을 수 있는 어린이집. 그 공간을 만들기 위해 오늘도 노력하겠습니다.</span>
+      </div>
+      <div class="director-sign">
+        <img src="images/web/logo.jpg" alt="" width="44" height="44" style="width:44px;height:44px;border-radius:13px;object-fit:contain;padding:4px;background:#fff;box-shadow:var(--shadow-sm);" loading="lazy">
+        <div>
+          <div class="nm">라움어린이집 원장</div>
+          <div class="rl">보육경력 25년 · 영아전문보육</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PHILOSOPHY ======================= -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">운영철학</span>
       <h2>아이의 속도를 믿고<br>기다리는 어린이집</h2>
       <p>라움어린이집은 아이를 빠르게 가르치기보다, 놀이와 관계 속에서 스스로 자라는 힘을 키워갑니다. 저희가 매일 지키는 세 가지 약속입니다.</p>
     </div>
@@ -744,6 +824,12 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
         <p>매일의 나들이와 숲놀이, 텃밭과 탄소중립 활동을 통해 자연을 가까이 만나고 생명을 존중하는 마음을 키워갑니다.</p>
       </div>
     </div>
+    <div class="phil-video reveal d3">
+      <video controls preload="metadata" poster="images/web/philosophy-video-poster.jpg" playsinline>
+        <source src="video/philosophy-intro.mp4" type="video/mp4">
+      </video>
+      <p class="phil-video-cap">라움어린이집의 마음을 담은 짧은 영상입니다</p>
+    </div>
   </div>
 </section>
 
@@ -751,7 +837,7 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
 <section id="programs">
   <div class="container">
     <div class="sec-head reveal">
-      <span class="sec-label">PROGRAMS</span>
+      <span class="sec-label">프로그램</span>
       <h2>놀이 속에서 자라는<br>라움의 특별한 하루</h2>
       <p>영아의 발달과 흥미를 바탕으로 자연, 그림책, 오감, 생태 경험이 일상 속 놀이로 자연스럽게 이어집니다.</p>
     </div>
@@ -794,11 +880,118 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
   </div>
 </section>
 
+<!-- ======================= DAILY ROUTINE ======================= -->
+<section id="routine">
+  <div class="container routine-wrap">
+    <div class="routine-intro reveal">
+      <span class="sec-label">하루일과</span>
+      <h2>아이의 하루,<br>놀이가 되는 시간</h2>
+      <p>아이에게 가장 좋은 하루는 바쁘게 채워진 하루가 아니라, 충분히 놀고 충분히 쉬며 사랑받는 하루입니다.</p>
+      <div class="routine-note">
+        ※ 일과는 아이의 컨디션과 계절, 날씨에 따라 유연하게 조정됩니다.
+      </div>
+    </div>
+    <div class="timeline reveal d1">
+      <div class="tl-item">
+        <div class="tl-time">07:30</div>
+        <div class="tl-title">등원 및 맞이</div>
+        <div class="tl-desc">오늘의 기분과 건강 상태를 살피며 따뜻하게 하루를 시작합니다.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">09:00</div>
+        <div class="tl-title">자유놀이 · 오감놀이</div>
+        <div class="tl-desc">아이의 흥미와 선택을 존중하며 놀이를 시작합니다.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">09:30</div>
+        <div class="tl-title">오전 간식</div>
+        <div class="tl-desc">친구들과 함께 즐겁게 간식을 먹으며 에너지를 채웁니다.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">10:00</div>
+        <div class="tl-title">바깥활동 · 숲놀이</div>
+        <div class="tl-desc">계절과 자연을 온몸으로 경험하며 매일 새로운 세상을 만납니다.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">11:30</div>
+        <div class="tl-title">점심 식사</div>
+        <div class="tl-desc">건강한 식재료를 즐겁게 경험하며 편안하게 식사합니다.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">12:30</div>
+        <div class="tl-title">낮잠 및 휴식</div>
+        <div class="tl-desc">편안한 환경에서 충분히 쉬며 몸과 마음을 회복합니다.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">15:00</div>
+        <div class="tl-title">오후 간식</div>
+        <div class="tl-desc">친구들과 함께 즐겁고 편안한 간식 시간을 보냅니다.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">15:30</div>
+        <div class="tl-title">오후 놀이</div>
+        <div class="tl-desc">실내외 놀이와 그림책으로 오후 시간을 이어갑니다.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">16:00 – 19:30</div>
+        <div class="tl-title">귀가 및 연장보육</div>
+        <div class="tl-desc">부모님과 하루의 이야기를 나누며 따뜻하게 마무리합니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CARE STANDARDS (안심보육) ======================= -->
+<section id="care">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-label">안심보육</span>
+      <h2>안심하고 맡기실 수 있는<br>운영 기준</h2>
+      <p>반 편성부터 급식, 위생·안전 관리까지 라움어린이집이 지키는 기본 원칙입니다.</p>
+    </div>
+    <div class="phil-grid">
+      <div class="phil-card reveal">
+        <div class="phil-icon">🏫</div>
+        <h3>반 구성 · 정원</h3>
+        <ul class="info-list">
+          <li>총 정원 20명 (0세 5명 · 1세 5명 · 2세 7명 · 시간제보육 3명)</li>
+          <li>0세반 2개 반 — 3명반(1:3), 2명반(1:2) 소규모 운영</li>
+          <li>1세반 1개 반, 정원 5명 (1:5)</li>
+          <li>2세반 1개 반, 정원 7명 (1:7)</li>
+          <li>현재 여석·대기 문의는 전화·카카오톡으로 안내해 드립니다</li>
+        </ul>
+      </div>
+      <div class="phil-card reveal d1">
+        <div class="phil-icon">🍽️</div>
+        <h3>급식 · 간식</h3>
+        <ul class="info-list">
+          <li>원내 직접 조리 (외부 위탁 없음)</li>
+          <li>자연드림 친환경 식자재와 신선 재료 사용</li>
+          <li>급식관리지원센터 연계 식단 구성 · 정기 위생·영양 관리 지도</li>
+          <li>알레르기가 있는 아이는 대체식 제공</li>
+          <li>오전·오후 하루 2회 간식 제공</li>
+        </ul>
+      </div>
+      <div class="phil-card reveal d2">
+        <div class="phil-icon">🛡️</div>
+        <h3>위생 · 안전 관리</h3>
+        <ul class="info-list">
+          <li>전 교실 CCTV 설치·운영</li>
+          <li>놀잇감·침구 정기세척 및 수시 소독</li>
+          <li>매일 실내 소독·환기, 등원 시 건강상태 확인</li>
+          <li>교직원 심폐소생술·응급처치, 아동학대예방·안전교육 정기 이수</li>
+          <li>매월 비상대피훈련 실시 · 어린이안전공제회 가입</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= TIME-CARE ======================= -->
 <section class="timecare" id="timecare">
   <div class="container">
     <div class="sec-head reveal">
-      <span class="sec-label">TIME-CARE PROGRAM</span>
+      <span class="sec-label">시간제보육</span>
       <h2>필요한 시간만큼,<br>잠깐 맡기셔도 괜찮아요</h2>
       <p>라움어린이집은 부산광역시 지정 <strong>시간제보육 기관</strong>입니다. 정규 등원을 하지 않는 아이도 예약 후 이용하실 수 있는 국가 지원 보육 서비스입니다.</p>
     </div>
@@ -913,102 +1106,11 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
   </div>
 </section>
 
-<!-- ======================= DIRECTOR ======================= -->
-<section class="director" id="director">
-  <div class="container director-grid">
-    <div class="director-photo reveal">
-      <img src="images/web/director.jpg" alt="아이와 함께 그림책을 읽는 선생님" loading="lazy" decoding="async">
-    </div>
-    <div class="director-text reveal d1">
-      <span class="sec-label">원장 인사말</span>
-      <p class="director-quote">
-        “아이 한 명 한 명의 눈빛을 마주하며,<br>
-        아이의 마음을 먼저 바라보는 것.<br>
-        그것이 라움이 가장 소중히 지키는 교육입니다.”
-      </p>
-      <div class="director-body">
-        <span>라움어린이집은 아이를 있는 그대로 바라보고, 저마다의 속도를 존중하는 곳입니다.</span>
-        <span>말이 빠른 아이도, 마음을 여는 데 시간이 필요한 아이도 모두 자신만의 방식으로 세상을 배워간다고 믿습니다.</span>
-        <span>매일 자연을 만나고, 마음껏 놀이하며, 사랑받는 기억을 차곡차곡 쌓아가는 것. 그 시간이 영아기의 가장 소중한 배움이라고 믿습니다.</span>
-        <span>아이도, 부모님도, 교사도 함께 웃을 수 있는 어린이집. 그 공간을 만들기 위해 오늘도 노력하겠습니다.</span>
-      </div>
-      <div class="director-sign">
-        <img src="images/web/logo.jpg" alt="" width="44" height="44" style="width:44px;height:44px;border-radius:13px;object-fit:contain;padding:4px;background:#fff;box-shadow:var(--shadow-sm);" loading="lazy">
-        <div>
-          <div class="nm">라움어린이집 원장</div>
-          <div class="rl">보육경력 25년 · 영아전문보육</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= DAILY ROUTINE ======================= -->
-<section id="routine">
-  <div class="container routine-wrap">
-    <div class="routine-intro reveal">
-      <span class="sec-label">DAILY ROUTINE</span>
-      <h2>아이의 하루,<br>놀이가 되는 시간</h2>
-      <p>아이에게 가장 좋은 하루는 바쁘게 채워진 하루가 아니라, 충분히 놀고 충분히 쉬며 사랑받는 하루입니다.</p>
-      <div class="routine-note">
-        ※ 일과는 아이의 컨디션과 계절, 날씨에 따라 유연하게 조정됩니다.
-      </div>
-    </div>
-    <div class="timeline reveal d1">
-      <div class="tl-item">
-        <div class="tl-time">07:30</div>
-        <div class="tl-title">등원 및 맞이</div>
-        <div class="tl-desc">오늘의 기분과 건강 상태를 살피며 따뜻하게 하루를 시작합니다.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">09:00</div>
-        <div class="tl-title">자유놀이 · 오감놀이</div>
-        <div class="tl-desc">아이의 흥미와 선택을 존중하며 놀이를 시작합니다.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">09:30</div>
-        <div class="tl-title">오전 간식</div>
-        <div class="tl-desc">친구들과 함께 즐겁게 간식을 먹으며 에너지를 채웁니다.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">10:00</div>
-        <div class="tl-title">바깥활동 · 숲놀이</div>
-        <div class="tl-desc">계절과 자연을 온몸으로 경험하며 매일 새로운 세상을 만납니다.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">11:30</div>
-        <div class="tl-title">점심 식사</div>
-        <div class="tl-desc">건강한 식재료를 즐겁게 경험하며 편안하게 식사합니다.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">12:30</div>
-        <div class="tl-title">낮잠 및 휴식</div>
-        <div class="tl-desc">편안한 환경에서 충분히 쉬며 몸과 마음을 회복합니다.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">15:00</div>
-        <div class="tl-title">오후 간식</div>
-        <div class="tl-desc">친구들과 함께 즐겁고 편안한 간식 시간을 보냅니다.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">15:30</div>
-        <div class="tl-title">오후 놀이</div>
-        <div class="tl-desc">실내외 놀이와 그림책으로 오후 시간을 이어갑니다.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">16:00 – 19:30</div>
-        <div class="tl-title">귀가 및 연장보육</div>
-        <div class="tl-desc">부모님과 하루의 이야기를 나누며 따뜻하게 마무리합니다.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ======================= GALLERY ======================= -->
 <section class="gallery" id="gallery">
   <div class="container">
     <div class="sec-head reveal">
-      <span class="sec-label">GALLERY</span>
+      <span class="sec-label">갤러리</span>
       <h2>아이들이 머무는<br>따뜻한 하루</h2>
       <p>숲과 텃밭, 교실과 나들이 속에서 만난 라움 아이들의 진짜 표정을 담았습니다.</p>
     </div>
@@ -1019,6 +1121,7 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
       <button class="gal-tile"      data-i="3"><img src="images/web/gallery6.jpg" alt="교실에서 함께 신체놀이를 하는 아이들" loading="lazy" decoding="async"><span class="gal-cap">다 함께 신체놀이</span></button>
       <button class="gal-tile wide" data-i="4"><img src="images/web/gallery4.jpg" alt="가족과 함께한 야외 놀이 행사" loading="lazy" decoding="async"><span class="gal-cap">가족과 함께한 봄 나들이</span></button>
       <button class="gal-tile wide" data-i="5"><img src="images/web/gallery5.jpg" alt="교실에서 캠핑 역할놀이를 하는 아이들" loading="lazy" decoding="async"><span class="gal-cap">교실 속 캠핑 놀이</span></button>
+      <!--<button class="gal-tile" data-i="6"><img src="images/web/gallery-riverside.jpg" alt="수영강 인근으로 산책 나온 아이들의 뒷모습" loading="lazy" decoding="async"><span class="gal-cap">수영강이 보이는 산책길</span></button>-->
     </div>
     <div class="insta-strip reveal">
       <div>
@@ -1033,11 +1136,45 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
   </div>
 </section>
 
+<!-- ======================= ADMISSION ======================= -->
+<section class="admission-sec" id="admission">
+  <div class="container">
+    <div class="admission reveal">
+      <span class="blob" style="width:360px;height:360px;background:var(--leaf);top:-120px;right:-70px;"></span>
+      <span class="blob" style="width:280px;height:280px;background:var(--sun);bottom:-120px;left:40px;opacity:.3;"></span>
+      <div class="admission-inner">
+        <div class="admission-label">입소안내</div>
+        <h2>마음이 맞는 아이와 가족을<br>기다리고 있습니다</h2>
+        <p class="admission-body">소수 정원제로 운영되어 반별로 조기 마감될 수 있습니다. 편안한 마음으로 상담 신청해 주시면 원내 투어와 입학 절차를 친절히 안내해 드립니다.</p>
+        <div class="admission-btns">
+          <a href="https://open.kakao.com/o/sfv9n8Eh" target="_blank" rel="noopener" class="btn btn-kakao">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.73 1.75 5.13 4.39 6.55-.17.62-.63 2.31-.72 2.67 0 0-.01.05.02.08s.08.01.08.01c.28-.04 3.22-2.1 3.74-2.47.81.12 1.65.18 2.49.18 5.5 0 10-3.58 10-8s-4.5-8-10-8z"/></svg>
+            카카오톡 상담 신청
+          </a>
+          <a href="tel:051-526-2120" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.62a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.46-1.21a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.62.65A2 2 0 0 1 22 16.92z"/></svg>
+            051-526-2120
+          </a>
+          <a href="https://www.childcare.go.kr/?menuno=169" target="_blank" rel="noopener" class="btn btn-leaf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            어린이집 등록대기 신청
+          </a>
+        </div>
+        <div class="ages">
+          <div class="age"><b>만 0세</b><span>따뜻한 애착과 안정적인 돌봄</span></div>
+          <div class="age"><b>만 1세</b><span>감각을 깨우는 오감놀이</span></div>
+          <div class="age"><b>만 2세</b><span>놀이와 언어가 자라는 시기</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= LOCATION ======================= -->
 <section id="location">
   <div class="container">
     <div class="sec-head reveal">
-      <span class="sec-label">VISIT US</span>
+      <span class="sec-label">오시는 길</span>
       <h2>언제든 편안하게<br>방문해 주세요</h2>
       <p>원내 투어는 사전 예약제로 운영합니다. 카카오톡이나 전화로 편한 시간을 알려주시면 안내해 드리겠습니다.</p>
     </div>
@@ -1046,12 +1183,8 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
         <div class="loc-addr">부산광역시 해운대구 삼어로 55<br>센텀SK뷰아파트 관리동</div>
         <p class="loc-hint">혜화초등학교 방향으로 걸어오시면 쉽게 찾으실 수 있습니다.</p>
         <div class="info-rows">
-          <div class="info-row"><strong>전화</strong><span class="val"><a href="tel:051-526-2120">051-526-2120</a></span></div>
-          <div class="info-row"><strong>운영시간</strong><span class="val">평일 07:30 – 19:30<br>토 · 일 · 공휴일 휴원</span></div>
           <div class="info-row"><strong>주차</strong><span class="val">아파트 단지 내 주차장 이용 가능</span></div>
           <div class="info-row"><strong>대중교통</strong><span class="val">반여동 센텀SK뷰아파트 정류장 인근</span></div>
-          <div class="info-row"><strong>모집연령</strong><span class="val">만 0세 · 만 1세 · 만 2세</span></div>
-          <div class="info-row"><strong>지정현황</strong><span class="val">부산광역시 시간제보육 지정기관</span></div>
         </div>
         <div class="loc-btns">
           <a href="tel:051-526-2120" class="btn btn-leaf">
@@ -1075,35 +1208,6 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
   </div>
 </section>
 
-<!-- ======================= ADMISSION ======================= -->
-<section class="admission-sec">
-  <div class="container">
-    <div class="admission reveal">
-      <span class="blob" style="width:360px;height:360px;background:var(--leaf);top:-120px;right:-70px;"></span>
-      <span class="blob" style="width:280px;height:280px;background:var(--sun);bottom:-120px;left:40px;opacity:.3;"></span>
-      <div class="admission-inner">
-        <div class="admission-label">ADMISSION</div>
-        <h2>마음이 맞는 아이와 가족을<br>기다리고 있습니다</h2>
-        <p class="admission-body">소수 정원제로 운영되어 반별로 조기 마감될 수 있습니다. 편안한 마음으로 상담 신청해 주시면 원내 투어와 입학 절차를 친절히 안내해 드립니다.</p>
-        <div class="admission-btns">
-          <a href="https://open.kakao.com/o/sfv9n8Eh" target="_blank" rel="noopener" class="btn btn-kakao">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.73 1.75 5.13 4.39 6.55-.17.62-.63 2.31-.72 2.67 0 0-.01.05.02.08s.08.01.08.01c.28-.04 3.22-2.1 3.74-2.47.81.12 1.65.18 2.49.18 5.5 0 10-3.58 10-8s-4.5-8-10-8z"/></svg>
-            카카오톡 상담 신청
-          </a>
-          <a href="tel:051-526-2120" class="btn btn-ghost">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.62a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.46-1.21a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.62.65A2 2 0 0 1 22 16.92z"/></svg>
-            051-526-2120
-          </a>
-        </div>
-        <div class="ages">
-          <div class="age"><b>만 0세</b><span>따뜻한 애착과 안정적인 돌봄</span></div>
-          <div class="age"><b>만 1세</b><span>감각을 깨우는 오감놀이</span></div>
-          <div class="age"><b>만 2세</b><span>놀이와 언어가 자라는 시기</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 
 <!-- ======================= FOOTER ======================= -->
