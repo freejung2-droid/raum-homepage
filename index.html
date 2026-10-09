@@ -598,6 +598,26 @@ section { padding: 116px 0; position: relative; }
   .ages { grid-template-columns: 1fr; margin-top: 38px; }
 }
 
+/* ============================ chatbot ============================ */
+.chatbot-sec { padding: 0 0 100px; }
+.chatbot-card {
+  max-width: 760px; margin: 0 auto; text-align: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-xl);
+  padding: 56px 40px; box-shadow: var(--shadow);
+}
+.chatbot-avatar {
+  width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 22px;
+  display: grid; place-items: center; background: #C9DCFB; color: #2F5AA8;
+  font-size: 38px; font-weight: 700; line-height: 1;
+}
+.chatbot-card h2 { font-size: clamp(24px, 3.2vw, 34px); }
+.chatbot-card p { color: var(--ink-soft); font-size: 16px; line-height: 1.85; margin: 16px auto 30px; max-width: 520px; }
+.chatbot-note { margin-top: 18px; font-size: 13px; color: var(--ink-mute); }
+@media (max-width: 600px) {
+  .chatbot-card { padding: 40px 22px; border-radius: var(--radius-lg); }
+  .chatbot-card .btn { width: 100%; }
+}
+
 /* ============================ footer ============================ */
 footer { background: var(--cream-2); border-top: 1px solid var(--line); padding: 66px 0 130px; }
 .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 44px; }
@@ -1166,6 +1186,22 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
           <div class="age"><b>만 2세</b><span>놀이와 언어가 자라는 시기</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CHATBOT (학부모상담 챗봇) ======================= -->
+<section class="chatbot-sec" id="chatbot">
+  <div class="container">
+    <div class="chatbot-card reveal">
+      <div class="chatbot-avatar" aria-hidden="true">라</div>
+      <h2>라움어린이집 학부모상담 챗봇</h2>
+      <p>라움어린이집 학부모님께서 양육에 관해 궁금한 사항을 언제든지 질문할 수 있습니다.</p>
+      <a href="https://gemini.google.com/gem/13PZe5Iw_QOotRSYspF-KZeKp-L27FcvG?usp=sharing" target="_blank" rel="noopener" class="btn btn-primary">
+        챗봇에게 질문하기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="chatbot-note">AI 챗봇의 답변은 참고용이며, 정확한 상담은 원으로 문의해 주세요. (051-526-2120)</p>
     </div>
   </div>
 </section>
