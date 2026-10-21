@@ -598,6 +598,85 @@ section { padding: 116px 0; position: relative; }
   .ages { grid-template-columns: 1fr; margin-top: 38px; }
 }
 
+/* ============================ notice (공지 게시물) ============================ */
+.notice-sec { padding: 0 0 100px; }
+.notice-post {
+  max-width: 900px; margin: 0 auto;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-xl);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.notice-head { padding: 44px 48px 32px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #fff 0%, var(--cream) 100%); }
+.notice-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.notice-tag {
+  font-size: 12.5px; font-weight: 700; padding: 5px 12px; border-radius: 999px;
+  background: rgba(124,179,66,.14); color: var(--leaf-deep);
+}
+.notice-tag.new { background: rgba(232,96,127,.13); color: var(--pink); }
+.notice-head h2 { font-size: clamp(23px, 3vw, 32px); }
+.notice-meta { margin-top: 14px; font-size: 13.5px; color: var(--ink-mute); display: flex; gap: 14px; flex-wrap: wrap; }
+.notice-body { padding: 36px 48px 44px; }
+.notice-lead { color: var(--ink-soft); font-size: 15.5px; line-height: 1.9; }
+.notice-body h3 {
+  font-size: 18.5px; margin: 40px 0 16px; display: flex; align-items: center; gap: 10px;
+}
+.notice-body h3 .num {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  display: grid; place-items: center; background: var(--teal); color: #fff;
+  font-family: var(--font-round); font-weight: 400; font-size: 14px;
+}
+.notice-timeline { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.notice-date {
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; background: var(--cream);
+}
+.notice-date b { font-family: var(--font-round); font-weight: 400; font-size: 21px; color: var(--teal); display: block; }
+.notice-date span { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+.notice-changes { display: grid; gap: 12px; }
+.notice-change {
+  display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start;
+  padding: 18px 20px; border-radius: var(--radius); border: 1px solid var(--line);
+}
+.notice-change-icon {
+  width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+  font-size: 22px; background: rgba(247,192,74,.18);
+}
+.notice-change h4 { font-size: 16px; margin-bottom: 4px; }
+.notice-change p { font-size: 14px; color: var(--ink-soft); line-height: 1.75; }
+.notice-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.notice-table th, .notice-table td { padding: 13px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+.notice-table th { background: var(--cream-2); font-weight: 700; color: var(--ink); font-size: 13.5px; }
+.notice-table td { color: var(--ink-soft); }
+.notice-table td:first-child { font-weight: 700; color: var(--teal); white-space: nowrap; }
+.notice-small { font-size: 13px; color: var(--ink-mute); line-height: 1.75; margin-top: 10px; }
+.notice-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 10px; }
+.notice-steps li {
+  counter-increment: step; position: relative; padding: 14px 16px 14px 54px;
+  background: var(--cream); border-radius: var(--radius-sm); font-size: 14.5px; color: var(--ink-soft); line-height: 1.7;
+}
+.notice-steps li::before {
+  content: counter(step); position: absolute; left: 16px; top: 14px;
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--leaf); color: #fff; font-weight: 700; font-size: 13px;
+}
+.notice-steps li strong { color: var(--ink); }
+.notice-tip {
+  margin-top: 36px; padding: 22px 24px; border-radius: var(--radius);
+  background: rgba(29,92,99,.07); border-left: 4px solid var(--teal);
+  font-size: 14.5px; color: var(--ink-soft); line-height: 1.85;
+}
+.notice-tip strong { color: var(--teal); }
+.notice-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+.notice-source { margin-top: 26px; padding-top: 18px; border-top: 1px dashed var(--line); font-size: 12.5px; color: var(--ink-mute); line-height: 1.8; }
+@media (max-width: 760px) {
+  .notice-head { padding: 32px 22px 24px; }
+  .notice-body { padding: 26px 22px 32px; }
+  .notice-timeline { grid-template-columns: 1fr; }
+  .notice-change { grid-template-columns: 1fr; }
+  .notice-table { font-size: 13.5px; }
+  .notice-table th, .notice-table td { padding: 11px 8px; }
+  .notice-btns { flex-direction: column; }
+  .notice-btns .btn { width: 100%; justify-content: center; }
+}
+
 /* ============================ chatbot ============================ */
 .chatbot-sec { padding: 0 0 100px; }
 .chatbot-card {
@@ -704,6 +783,7 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
   <a href="#timecare">시간제보육</a>
   <a href="#gallery">갤러리</a>
   <a href="#admission">입소안내</a>
+  <a href="#notice">2027 입소소식</a>
   <a href="#location">오시는 길</a>
   <a href="https://open.kakao.com/o/sfv9n8Eh" target="_blank" rel="noopener">카카오톡 입학 상담</a>
 </div>
@@ -1187,6 +1267,126 @@ footer { background: var(--cream-2); border-top: 1px solid var(--line); padding:
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ======================= NOTICE (2027학년도 입소 안내 게시물) ======================= -->
+<section class="notice-sec" id="notice">
+  <div class="container">
+    <article class="notice-post reveal">
+      <header class="notice-head">
+        <div class="notice-tags">
+          <span class="notice-tag new">NEW</span>
+          <span class="notice-tag">입소안내</span>
+          <span class="notice-tag">2027학년도</span>
+        </div>
+        <h2>2027학년도, 이렇게 달라지는<br>어린이집 입소 신청 안내</h2>
+        <div class="notice-meta">
+          <span>라움어린이집</span>
+          <time datetime="2026-10-21">2026. 10. 21.</time>
+        </div>
+      </header>
+
+      <div class="notice-body">
+        <p class="notice-lead">
+          2027학년도(2027년 3월 입소) 어린이집·유치원 입소 신청이 <strong>유보통합포털</strong>에서 더 쉽고 편하게 바뀝니다.
+          교육부 발표 내용을 바탕으로 학부모님께서 꼭 알아두셔야 할 변화와 신청 방법을 정리했습니다.
+        </p>
+
+        <h3><span class="num">1</span>주요 일정</h3>
+        <div class="notice-timeline">
+          <div class="notice-date">
+            <b>10월 28일(수)~</b>
+            <span>자녀 정보 등록 · 관심 기관 '찜하기' 기능 먼저 오픈</span>
+          </div>
+          <div class="notice-date">
+            <b>11월 2일(월)~</b>
+            <span>2027학년도 어린이집 입소 · 유치원 입학 신청 시작</span>
+          </div>
+        </div>
+
+        <h3><span class="num">2</span>무엇이 달라지나요?</h3>
+        <div class="notice-changes">
+          <div class="notice-change">
+            <div class="notice-change-icon">🔔</div>
+            <div>
+              <h4>입소 정보 사전 알림</h4>
+              <p>만 0~5세 자녀를 둔 부모님께 입소·입학 신청 일정과 방법을 휴대전화 알림(복지멤버십)으로 미리 안내해 드립니다.</p>
+            </div>
+          </div>
+          <div class="notice-change">
+            <div class="notice-change-icon">💚</div>
+            <div>
+              <h4>관심 기관 '찜하기'</h4>
+              <p>어린이집과 유치원을 구분 없이 함께 검색하고, 마음에 드는 기관을 목록에 저장해 두었다가 바로 신청할 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="notice-change">
+            <div class="notice-change-icon">📄</div>
+            <div>
+              <h4>증빙서류 직접 발급 없이 온라인 제출</h4>
+              <p>행정안전부 공공 마이데이터와 연계해 주민등록 등·초본, 가족관계증명서 등 자격 확인 서류를 온라인으로 확인·제출할 수 있습니다. (어린이집 6종 · 유치원 14종)</p>
+            </div>
+          </div>
+          <div class="notice-change">
+            <div class="notice-change-icon">👶</div>
+            <div>
+              <h4>자녀 정보 한 번에 등록</h4>
+              <p>행정정보 연계로 자녀 정보를 불러와 간편하게 등록하고, 여러 기관 신청에 그대로 활용할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3><span class="num">3</span>2027년 우리 아이는 몇 세반?</h3>
+        <table class="notice-table">
+          <thead>
+            <tr><th>반 구분</th><th>2027학년도 대상 (출생연도)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>만 0세반</td><td>2026년 1월 1일 이후 출생</td></tr>
+            <tr><td>만 1세반</td><td>2025년 1월 1일 ~ 12월 31일 출생</td></tr>
+            <tr><td>만 2세반</td><td>2024년 1월 1일 ~ 12월 31일 출생</td></tr>
+          </tbody>
+        </table>
+        <p class="notice-small">
+          ※ 어린이집은 같은 해(1.1.~12.31.)에 태어난 아이들을 한 반으로 편성하는 것이 원칙입니다.
+          1·2월생은 보호자 신청 시 상위 연령반 편성이 가능하나 이후 동일 과정을 반복할 수 있으니 상담 시 안내받으세요.
+          최종 기준은 보건복지부 「2027년도 보육사업안내」에 따릅니다.
+        </p>
+
+        <h3><span class="num">4</span>라움어린이집 입소 신청 순서</h3>
+        <ol class="notice-steps">
+          <li><strong>유보통합포털 접속</strong> 후 본인 인증 및 자녀 정보 등록</li>
+          <li><strong>'라움어린이집' 검색 후 찜하기</strong> (부산 해운대구 반여동)</li>
+          <li><strong>입소대기(등록대기) 신청</strong> — 맞벌이·다자녀 등 우선순위 항목 체크</li>
+          <li>입소 대상 확정 시 어린이집에서 <strong>개별 연락</strong> → 증빙서류 확인</li>
+          <li><strong>입소 상담 및 원내 투어</strong> 후 오리엔테이션, 2027년 3월 등원</li>
+        </ol>
+
+        <div class="notice-tip">
+          <strong>💡 꼭 확인해 주세요</strong><br>
+          입소대기 신청은 아동 1명당 신청 가능한 어린이집 수가 정해져 있습니다(최대 3곳). 우선순위 항목은 증빙서류로 확인하니 사실대로 선택해 주세요.
+          라움어린이집은 소수 정원제로 운영되어 반별로 조기 마감될 수 있으니, 궁금하신 점은 미리 상담해 주시면 친절히 안내해 드리겠습니다.
+        </div>
+
+        <div class="notice-btns">
+          <a href="https://www.childinfo.go.kr/" target="_blank" rel="noopener" class="btn btn-primary">
+            유보통합포털 바로가기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="https://open.kakao.com/o/sfv9n8Eh" target="_blank" rel="noopener" class="btn btn-kakao">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.73 1.75 5.13 4.39 6.55-.17.62-.63 2.31-.72 2.67 0 0-.01.05.02.08s.08.01.08.01c.28-.04 3.22-2.1 3.74-2.47.81.12 1.65.18 2.49.18 5.5 0 10-3.58 10-8s-4.5-8-10-8z"/></svg>
+            카카오톡 입소 상담
+          </a>
+          <a href="tel:051-526-2120" class="btn btn-leaf">전화 문의 051-526-2120</a>
+        </div>
+
+        <p class="notice-source">
+          참고: 교육부 「어린이집·유치원 입소·입학 신청 서비스 개편」 발표(2026.10.), 임신육아종합포털 아이사랑·보건복지부 보육사업안내 반편성 기준.
+          세부 일정과 기준은 기관 및 지역 사정에 따라 달라질 수 있으니 유보통합포털 공지사항을 함께 확인해 주세요.
+        </p>
+      </div>
+    </article>
   </div>
 </section>
 
